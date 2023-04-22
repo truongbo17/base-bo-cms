@@ -1,0 +1,19 @@
+{
+    "name": "bo/base",
+    "description": "Core Base CMS",
+    "type": "package",
+    "autoload": {
+        "psr-4": {
+            "Bo\\Base\\": "app"
+        }
+    },
+    "require": {
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bo\\Base\\Providers\\BoServiceProvider"
+            ]
+        }
+    }
+}
