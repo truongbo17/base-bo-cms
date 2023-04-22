@@ -24,7 +24,7 @@ return [
     // ----
 
     // Project name. Shown in the window title.
-    'project_name' => 'Bo Admin Panel',
+    'project_name' => 's6789 Admin Panel',
 
     // When clicking on the admin panel's top-left logo/name,
     // where should the user be redirected?
@@ -72,7 +72,7 @@ return [
     // ------
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<b>Bo</b>CMS',
+    'project_logo'   => '<b>s6789</b>Panel',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
