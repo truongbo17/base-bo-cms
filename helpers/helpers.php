@@ -110,6 +110,7 @@ if (!function_exists('bo_avatar_url')) {
      */
     function bo_avatar_url($user): string
     {
+        return '';
         switch (config('bo.base.avatar_type')) {
             case 'gravatar':
                 if (bo_users_have_email()) {
