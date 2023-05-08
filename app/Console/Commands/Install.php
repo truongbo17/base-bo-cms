@@ -51,8 +51,8 @@ class Install extends Command
             '--tag' => 'minimum',
         ]);
 
-        $this->line(" Creating users table (using Laravel's default migration)");
-        $this->executeArtisanProcess('migrate', $this->option('no-interaction') ? ['--no-interaction' => true] : []);
+//        $this->line(" Creating users table (using Laravel's default migration)");
+//        $this->executeArtisanProcess('migrate', $this->option('no-interaction') ? ['--no-interaction' => true] : []);
 
 //        $this->executeArtisanProcess('db:seed' );
 
