@@ -54,7 +54,7 @@ class Install extends Command
         $this->line(" Creating users table (using Laravel's default migration)");
         $this->executeArtisanProcess('migrate', $this->option('no-interaction') ? ['--no-interaction' => true] : []);
 
-        $this->executeArtisanProcess('db:seed' );
+//        $this->executeArtisanProcess('db:seed' );
 
         $this->progressBar->finish();
         $this->info(' BoCMS installation finished.');
