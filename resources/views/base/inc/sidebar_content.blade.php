@@ -16,30 +16,32 @@
             </li>
         </div>
     @elseif($dashboard_sidebar->type == 'group')
-        <div @if(!is_null($dashboard_sidebar->getStyleCss()) && (in_array(bo_user()->is_admin, $dashboard_sidebar->getPermission())))
-                 style="{{$dashboard_sidebar->getStyleCss() ?? ''}}"
-            @endif>
-            <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle {{$dashboard_sidebar->getClass() ?? ''}}" href="#"><i
-                        class="{{$dashboard_sidebar->getIcon() ?? ''}}"></i> {{$dashboard_sidebar->getLabel() ?? ''}}
-                </a>
-                @if(!is_null($dashboard_sidebar->getChildItem()))
-                    <ul class="nav-dropdown-items">
-                        @foreach($dashboard_sidebar->getChildItem() as $item_child)
-                            <div @if(!is_null($item_child->getStyleCss()))
-                                     style="{{$item_child->getStyleCss() ?? ''}}"
-                                @endif>
-                                <li class="nav-item">
-                                    <a class="nav-link {{$item_child->getClass() ?? ''}}"
-                                       href="{{$item_child->getRoute()}}"><i
-                                            class="{{$item_child->getIcon() ?? ''}}"></i> {{$item_child->getLabel() ?? ''}}
-                                    </a>
-                                </li>
-                            </div>
-                        @endforeach
-                    </ul>
-                @endif
-            </li>
-        </div>
+        @if((in_array(bo_user()->is_admin, $dashboard_sidebar->getPermission())))
+            <div @if(!is_null($dashboard_sidebar->getStyleCss()))
+                     style="{{$dashboard_sidebar->getStyleCss() ?? ''}}"
+                @endif>
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle {{$dashboard_sidebar->getClass() ?? ''}}" href="#"><i
+                            class="{{$dashboard_sidebar->getIcon() ?? ''}}"></i> {{$dashboard_sidebar->getLabel() ?? ''}}
+                    </a>
+                    @if(!is_null($dashboard_sidebar->getChildItem()))
+                        <ul class="nav-dropdown-items">
+                            @foreach($dashboard_sidebar->getChildItem() as $item_child)
+                                <div @if(!is_null($item_child->getStyleCss()))
+                                         style="{{$item_child->getStyleCss() ?? ''}}"
+                                    @endif>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{$item_child->getClass() ?? ''}}"
+                                           href="{{$item_child->getRoute()}}"><i
+                                                class="{{$item_child->getIcon() ?? ''}}"></i> {{$item_child->getLabel() ?? ''}}
+                                        </a>
+                                    </li>
+                                </div>
+                            @endforeach
+                        </ul>
+                    @endif
+                </li>
+            </div>
+        @endif
     @endif
 @endforeach
