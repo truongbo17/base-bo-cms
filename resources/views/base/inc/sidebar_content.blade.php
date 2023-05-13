@@ -4,7 +4,7 @@
     @include($views_include)
 @endforeach
 @foreach(\SideBarDashBoard::getAll() as $dashboard_sidebar)
-    @if($dashboard_sidebar->type == 'item' && (bo_user()->is_admin == $dashboard_sidebar->getPermission()))
+    @if($dashboard_sidebar->type == 'item' && (in_array(bo_user()->is_admin, $dashboard_sidebar->getPermission())))
         <div @if(!is_null($dashboard_sidebar->getStyleCss()))
                  style="{{$dashboard_sidebar->getStyleCss() ?? ''}}"
             @endif>
@@ -16,7 +16,7 @@
             </li>
         </div>
     @elseif($dashboard_sidebar->type == 'group')
-        <div @if(!is_null($dashboard_sidebar->getStyleCss()) && (bo_user()->is_admin == $dashboard_sidebar->getPermission()))
+        <div @if(!is_null($dashboard_sidebar->getStyleCss()) && (in_array(bo_user()->is_admin, $dashboard_sidebar->getPermission())))
                  style="{{$dashboard_sidebar->getStyleCss() ?? ''}}"
             @endif>
             <li class="nav-item nav-dropdown">
